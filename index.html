@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moon Drifter Survival</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Orbitron:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hud">
+        <div>
+          <p class="eyebrow">Lunar Survival</p>
+          <h1>Moon Drifter</h1>
+          <p class="subtitle">
+            Explore a larger moon, gather drifting supplies, and build enough
+            shelter to survive the silent night.
+          </p>
+        </div>
+
+        <div class="stats">
+          <div class="stat-card">
+            <span>Day</span>
+            <strong id="dayCount">1</strong>
+          </div>
+          <div class="stat-card">
+            <span>Score</span>
+            <strong id="scoreCount">0</strong>
+          </div>
+          <div class="stat-card">
+            <span>Structures</span>
+            <strong id="structureCount">0</strong>
+          </div>
+        </div>
+
+        <div class="meters">
+          <label>
+            <span>Oxygen</span>
+            <div class="meter"><div id="oxygenBar"></div></div>
+          </label>
+          <label>
+            <span>Hunger</span>
+            <div class="meter"><div id="hungerBar"></div></div>
+          </label>
+          <label>
+            <span>Energy</span>
+            <div class="meter"><div id="energyBar"></div></div>
+          </label>
+        </div>
+
+        <div class="inventory">
+          <div class="inv-card">
+            <span>Food</span>
+            <strong id="foodCount">0</strong>
+          </div>
+          <div class="inv-card">
+            <span>Ore</span>
+            <strong id="oreCount">0</strong>
+          </div>
+          <div class="inv-card">
+            <span>Ice</span>
+            <strong id="iceCount">0</strong>
+          </div>
+          <div class="inv-card">
+            <span>Parts</span>
+            <strong id="partsCount">0</strong>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="buildDome">Build Dome</button>
+          <button id="buildFarm">Build Farm</button>
+          <button id="buildRecycler">Build Recycler</button>
+        </div>
+
+        <div class="legend">
+          <p><kbd>A</kbd><kbd>D</kbd> move across the moon</p>
+          <p><kbd>W</kbd> thruster hop</p>
+          <p><kbd>E</kbd> gather nearby supplies</p>
+          <p><kbd>R</kbd> eat food pack</p>
+        </div>
+
+        <div id="messageLog" class="message-log" aria-live="polite"></div>
+      </section>
+
+      <section class="game-panel">
+        <canvas id="gameCanvas" width="980" height="620"></canvas>
+      </section>
+    </main>
+
+    <script src="./game.js"></script>
+  </body>
+</html>
