@@ -14,85 +14,64 @@
   </head>
   <body>
     <main class="shell">
-      <section class="hud">
-        <div>
-          <p class="eyebrow">Lunar Survival</p>
-          <h1>Moon Drifter</h1>
-          <p class="subtitle">
-            Explore a larger moon, gather drifting supplies, and build enough
-            shelter to survive the silent night.
-          </p>
-        </div>
-
-        <div class="stats">
-          <div class="stat-card">
-            <span>Day</span>
-            <strong id="dayCount">1</strong>
-          </div>
-          <div class="stat-card">
-            <span>Score</span>
-            <strong id="scoreCount">0</strong>
-          </div>
-          <div class="stat-card">
-            <span>Structures</span>
-            <strong id="structureCount">0</strong>
-          </div>
-        </div>
-
-        <div class="meters">
-          <label>
-            <span>Oxygen</span>
-            <div class="meter"><div id="oxygenBar"></div></div>
-          </label>
-          <label>
-            <span>Hunger</span>
-            <div class="meter"><div id="hungerBar"></div></div>
-          </label>
-          <label>
-            <span>Energy</span>
-            <div class="meter"><div id="energyBar"></div></div>
-          </label>
-        </div>
-
-        <div class="inventory">
-          <div class="inv-card">
-            <span>Food</span>
-            <strong id="foodCount">0</strong>
-          </div>
-          <div class="inv-card">
-            <span>Ore</span>
-            <strong id="oreCount">0</strong>
-          </div>
-          <div class="inv-card">
-            <span>Ice</span>
-            <strong id="iceCount">0</strong>
-          </div>
-          <div class="inv-card">
-            <span>Parts</span>
-            <strong id="partsCount">0</strong>
-          </div>
-        </div>
-
-        <div class="controls">
-          <button id="buildDome">Build Dome</button>
-          <button id="buildFarm">Build Farm</button>
-          <button id="buildRecycler">Build Recycler</button>
-        </div>
-
-        <div class="legend">
-          <p><kbd>A</kbd><kbd>D</kbd> move across the moon</p>
-          <p><kbd>W</kbd> thruster hop</p>
-          <p><kbd>E</kbd> gather nearby supplies</p>
-          <p><kbd>R</kbd> eat food pack</p>
-        </div>
-
-        <div id="messageLog" class="message-log" aria-live="polite"></div>
-      </section>
-
       <section class="game-panel">
-        <canvas id="gameCanvas" width="980" height="620"></canvas>
+        <div class="canvas-shell">
+          <canvas id="gameCanvas" width="980" height="620"></canvas>
+          <button id="settingsButton" class="settings-button in-game-button" aria-label="Open controls">
+            Controls
+          </button>
+          <button id="restartButton" class="restart-button hidden">Restart Mission</button>
+        </div>
+
+        <div class="touch-controls">
+          <div class="touch-move">
+            <button class="touch-button" data-touch-control="left">Left</button>
+            <button class="touch-button" data-touch-control="right">Right</button>
+          </div>
+          <div class="touch-actions">
+            <button class="touch-button touch-action" data-touch-action="jump">Jump</button>
+            <button class="touch-button touch-action" data-touch-action="use">Use</button>
+            <button class="touch-button touch-action" data-touch-action="eat">Eat</button>
+          </div>
+        </div>
       </section>
     </main>
+
+    <div id="settingsModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-card">
+        <div class="modal-header">
+          <div>
+            <p class="modal-eyebrow">Moon Drifter</p>
+            <h2>Controllers</h2>
+          </div>
+          <button id="closeSettingsButton" class="modal-close" aria-label="Close settings">
+            Close
+          </button>
+        </div>
+        <div class="modal-grid">
+          <div class="modal-section">
+            <h3>Desktop</h3>
+            <p><strong>`A` / `D`</strong> move left and right</p>
+            <p><strong>`W`</strong> jump in low gravity</p>
+            <p><strong>`E`</strong> enter a location or exit it</p>
+            <p><strong>`R`</strong> eat a food pack</p>
+          </div>
+          <div class="modal-section">
+            <h3>Mobile</h3>
+            <p><strong>Left / Right</strong> move across the moon</p>
+            <p><strong>Jump</strong> thruster hop</p>
+            <p><strong>Use</strong> enter or leave a location</p>
+            <p><strong>Eat</strong> consume a food pack</p>
+          </div>
+          <div class="modal-section">
+            <h3>Mission</h3>
+            <p>Collect coins, food, ore, ice, and parts.</p>
+            <p>Enter the lander and outposts to explore interior levels.</p>
+            <p>Keep oxygen, hunger, and energy above zero.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="./game.js"></script>
   </body>
